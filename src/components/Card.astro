@@ -8,10 +8,10 @@ export interface Props {
 const { href, title, body } = Astro.props;
 ---
 
-<div class="shadow-md rounded">
-	<img src="/temp.jpg" />
+<div class="shadow-md rounded mx-auto max-w-2xl">
+	<img src="/temp.jpg" class="rounded-t" />
 	<div class="p-4">
-		<h2>We went to the basketball</h2>
-		<p>So much fun despite the Celtics losing, we will be back for sure!</p>
+		<h2 class="text-2xl py-4">We went to the basketball</h2>
+		<p class="text-lg">So much fun despite the Celtics losing, we will be back for sure!</p>
 	</div>
 </div>
