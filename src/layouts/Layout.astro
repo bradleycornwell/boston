@@ -22,8 +22,9 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<header class="shadow-sm p-2">
+		<header class="shadow-sm p-2 flex place-content-between">
 			<h1 class="text-xl">Cornwells in Boston</h1>
+			<img src="logo.png" width="75px" />
 		</header>
 		<slot />
 		<footer class="absolute inset-x-0 bottom-0 h-8 text-center text-sm">Cornwells in Boston 2023</footer>
