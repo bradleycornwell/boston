@@ -1,4 +1,5 @@
-import Carousel from 'nuka-carousel/lib/carousel';
+import Carousel from 'nuka-carousel';
+import ReactPlayer from 'react-player';
 
 const MyCarousel = ({ items }: { items: any }) => {
 	return (
@@ -12,15 +13,14 @@ const MyCarousel = ({ items }: { items: any }) => {
 			>
 				{items.map((media: any, idx: any) =>
 					media.fields.file.contentType === 'video/mp4' ? (
-						<></>
+						<ReactPlayer
+							key={idx}
+							controls
+							width={'100%'}
+							playing={false}
+							url={`https://${media.fields.file.url}`}
+						></ReactPlayer>
 					) : (
-						// <ReactPlayer
-						// 	key={idx}
-						// 	controls
-						// 	width={'100%'}
-						// 	playing={false}
-						// 	url={`https://${media.fields.file.url}`}
-						// ></ReactPlayer>
 						<img
 							className="rounded"
 							src={`https://${media.fields.file.url}`}
