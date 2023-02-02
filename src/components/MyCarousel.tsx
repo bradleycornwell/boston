@@ -1,10 +1,10 @@
-import { default as Nuka } from 'nuka-carousel/lib/carousel';
+import Carousel from 'nuka-carousel';
 import ReactPlayer from 'react-player';
 
-export function Carousel({ items }: { items: any }) {
+export function MyCarousel({ items }: { items: any }) {
 	return (
 		<div className="w-full my-2 rounded">
-			<Nuka
+			<Carousel
 				slidesToShow={1}
 				renderCenterLeftControls={({}) => <></>}
 				renderCenterRightControls={({}) => <></>}
