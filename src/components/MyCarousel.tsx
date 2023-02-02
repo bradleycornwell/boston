@@ -5,7 +5,7 @@ const MyCarousel = ({ items }: { items: any }) => {
 	return (
 		<div className="w-full my-2 rounded">
 			<div>test</div>
-			{/* <Carousel
+			<Carousel
 				slidesToShow={1}
 				renderCenterLeftControls={({}) => <></>}
 				renderCenterRightControls={({}) => <></>}
@@ -27,7 +27,7 @@ const MyCarousel = ({ items }: { items: any }) => {
 						/>
 					)
 				)}
-			</Carousel> */}
+			</Carousel>
 		</div>
 	);
 };
