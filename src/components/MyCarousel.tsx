@@ -26,7 +26,7 @@ export function MyCarousel({ items }: { items: any }) {
 						/>
 					)
 				)}
-			</Nuka>
+			</Carousel>
 		</div>
 	);
 }
