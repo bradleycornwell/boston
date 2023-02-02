@@ -1,7 +1,7 @@
 import { default as Nuka } from 'nuka-carousel/lib/carousel';
 import ReactPlayer from 'react-player';
 
-function Carousel({ items }: { items: any }) {
+export function Carousel({ items }: { items: any }) {
 	return (
 		<div className="w-full my-2 rounded">
 			<Nuka
@@ -30,5 +30,3 @@ function Carousel({ items }: { items: any }) {
 		</div>
 	);
 }
-
-export default Carousel;
