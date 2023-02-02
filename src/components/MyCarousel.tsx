@@ -1,4 +1,4 @@
-import Carousel from 'nuka-carousel';
+import Carousel from 'nuka-carousel/lib/carousel';
 
 const MyCarousel = ({ items }: { items: any }) => {
 	return (
