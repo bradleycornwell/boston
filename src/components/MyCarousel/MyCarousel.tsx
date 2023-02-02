@@ -1,7 +1,7 @@
-import {Carousel} from 'nuka-carousel';
-import {ReactPlayer} from 'react-player';
+import Carousel from 'nuka-carousel';
+import ReactPlayer from 'react-player';
 
-export function MyCarousel({items}) {
+const MyCarousel = ({ items }: { items: any }) => {
 	return (
 		<div className="w-full my-2 rounded">
 			<Carousel
@@ -10,7 +10,7 @@ export function MyCarousel({items}) {
 				renderCenterRightControls={({}) => <></>}
 				adaptiveHeight
 			>
-				{items.map((media, idx) =>
+				{items.map((media: any, idx: any) =>
 					media.fields.file.contentType === 'video/mp4' ? (
 						<ReactPlayer
 							key={idx}
@@ -29,4 +29,6 @@ export function MyCarousel({items}) {
 			</Carousel>
 		</div>
 	);
-}
+};
+
+export default MyCarousel;
