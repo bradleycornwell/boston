@@ -20,7 +20,8 @@ const entries = await contentfulClient.getEntries<BlogPost>({
   {entries.items.map((item, idx) => (
     <section class="shadow-lg p-4 my-4 bg-white drop-shadow-xl rounded-sm">
       <h2 class="text-xl font-semibold">{item.fields.title}</h2>
-	  
+	    <MyCarousel items={item.fields.media} client:load>
+		  </MyCarousel>
 	  <article class="py-2" set:html={documentToHtmlString(item.fields.entry)}></article>
     </section>
   ))}
