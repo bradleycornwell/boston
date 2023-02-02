@@ -4,7 +4,8 @@ import ReactPlayer from 'react-player';
 const MyCarousel = ({ items }: { items: any }) => {
 	return (
 		<div className="w-full my-2 rounded">
-			<Carousel
+			<div>test</div>
+			{/* <Carousel
 				slidesToShow={1}
 				renderCenterLeftControls={({}) => <></>}
 				renderCenterRightControls={({}) => <></>}
@@ -26,7 +27,7 @@ const MyCarousel = ({ items }: { items: any }) => {
 						/>
 					)
 				)}
-			</Carousel>
+			</Carousel> */}
 		</div>
 	);
 };
