@@ -1,17 +1,27 @@
 ---
-export interface Props {
-	title: string;
-	body: string;
-	href: string;
+import { contentfulClient } from "../lib/contentful";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import type { Document } from "@contentful/rich-text-types";
+import Carousel from "./Carousel";
+interface BlogPost {
+    title: string,
+    entry: Document,
+	media: any
 }
 
-const { href, title, body } = Astro.props;
+const entries = await contentfulClient.getEntries<BlogPost>({
+  content_type: "blog",
+});
+
 ---
 
-<div class="shadow-md rounded mx-auto max-w-2xl">
-	<img src="/temp.jpg" class="rounded-t" />
-	<div class="p-4">
-		<h2 class="text-2xl py-4">We went to the basketball</h2>
-		<p class="text-lg">So much fun despite the Celtics losing, we will be back for sure!</p>
-	</div>
+<div class="font-body">
+  {entries.items.map((item, idx) => (
+    <section class="shadow-lg p-4 my-4 bg-white drop-shadow-xl rounded-sm">
+      <h2 class="text-xl font-semibold">{item.fields.title}</h2>
+	  <Carousel items={item.fields.media} client:load>
+		</Carousel>
+	  <article class="py-2" set:html={documentToHtmlString(item.fields.entry)}></article>
+    </section>
+  ))}
 </div>

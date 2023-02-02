@@ -11,20 +11,16 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-		<link rel="icon" type="image/png" href="/logo.png" />
+		<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+		<link rel="icon" type="image/png" href="/cornwells-in-boston-website-favicon-black.png" />
 		<meta name="generator" content={Astro.generator} />
-		<style> 
-			@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&display=swap'); 
-		</style>
 		<title>{title}</title>
 	</head>
-	<body>
+	<body>	
 		<header class="shadow-sm p-2 flex place-content-between">
-			<h1 class="text-3xl md:text-5xl lg:text-6xl my-auto mx-auto">Cornwells in Boston</h1>
-			<img src="logo.png" class="w-24 md:w-32 lg:w-48 h-24 md:h-32 lg:h-48" />
+			<h1 class="font-headings text-3xl md:text-5xl lg:text-6xl my-auto mx-auto text-white">Cornwells in Boston</h1>
+			<img src="/cornwells-in-boston-website-favicon-color.png" class="h-24 md:h-32 lg:h-48" />
 		</header>
 		<slot />
 		
@@ -35,8 +31,9 @@ const { title } = Astro.props;
 
 	}
 	html {
-		font-family: 'Lobster', cursive;
-		font-family: 'Lobster Two', cursive;
-		background-color: #F6F6F6;
+		font-family: 'Great Vibes', cursive;
+		font-family: 'Playfair Display', serif;
+		color: black;
+		background-color: #528265;
 	}
 </style>
