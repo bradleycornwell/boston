@@ -3,6 +3,7 @@ import { contentfulClient } from "../lib/contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import type { Document } from "@contentful/rich-text-types";
 import MyCarousel from "./MyCarousel";
+import dayjs from 'dayjs';
 
 interface BlogPost {
     title: string,
@@ -17,9 +18,10 @@ const entries = await contentfulClient.getEntries<BlogPost>({
 ---
 
 <div class="font-body">
-  {entries.items.map((item, idx) => (
-    <section class="shadow-lg p-4 my-4 bg-white drop-shadow-xl rounded-sm">
+  {entries.items.sort((p, c) => dayjs(c.sys.createdAt).isAfter(dayjs(p.sys.createdAt)) ? 1 : -1).map((item, idx) => (
+    <section class="shadow-lg p-4 my-4 bg-white drop-shadow-xl rounded-sm max-w-xl mx-auto">
       <h2 class="text-xl font-semibold">{item.fields.title}</h2>
+      <p>{dayjs(item.sys.createdAt).format('DD MMM YY')}</p>
 	    <MyCarousel items={item.fields.media} client:only>
 		  </MyCarousel>
 	  <article class="py-2" set:html={documentToHtmlString(item.fields.entry)}></article>
