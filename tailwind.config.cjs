@@ -9,7 +9,12 @@ module.exports = {
 		colors: {
 			white: '#FFFFFF',
 			black: '#000000',
-			green: '#528265',
+			green: {
+				100: '#eef3f0',
+				300: '#a9c1b2',
+				500: '#528265',
+				900: '#314e3d',
+			},
 		},
 		extend: {},
 	},

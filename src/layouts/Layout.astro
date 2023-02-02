@@ -17,13 +17,12 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>	
-		<header class="shadow-sm p-2 flex place-content-between">
+	<body>
+		<header class="bg-green-500 border-b border-white shadow-sm p-2 flex place-content-between">
 			<h1 class="font-headings text-3xl md:text-5xl lg:text-6xl my-auto mx-auto text-white">Cornwells in Boston</h1>
 			<img src="/cornwells-in-boston-website-favicon-color.png" class="h-24 md:h-32 lg:h-48" />
 		</header>
 		<slot />
-		
 	</body>
 </html>
 <style is:global>
@@ -34,6 +33,6 @@ const { title } = Astro.props;
 		font-family: 'Great Vibes', cursive;
 		font-family: 'Playfair Display', serif;
 		color: black;
-		background-color: #528265;
+		background-color: #a9c1b2;
 	}
 </style>
