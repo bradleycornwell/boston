@@ -12,15 +12,15 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 		<link rel="icon" type="image/png" href="/cornwells-in-boston-website-favicon-black.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
 		<header class="bg-green-500 border-b border-white shadow-sm p-2 flex place-content-between">
-			<h1 class="font-headings text-3xl md:text-5xl lg:text-6xl my-auto mx-auto text-white">Cornwells in Boston</h1>
-			<img src="/cornwells-in-boston-website-favicon-color.png" class="h-24 md:h-32 lg:h-48" />
+			<h1 class="text-2xl md:text-4xl my-auto mx-auto text-white">Cornwells in Boston</h1>
+			<img src="/cornwells-in-boston-website-favicon-color.png" class="h-24" />
 		</header>
 		<slot />
 	</body>
@@ -30,9 +30,8 @@ const { title } = Astro.props;
 
 	}
 	html {
-		font-family: 'Great Vibes', cursive;
-		font-family: 'Playfair Display', serif;
-		color: black;
-		background-color: #a9c1b2;
+		font-family: 'Poppins', sans-serif;
+		color: #525252;
+		background-color: #FAF9F6;
 	}
 </style>

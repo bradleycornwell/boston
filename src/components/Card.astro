@@ -17,11 +17,13 @@ const entries = await contentfulClient.getEntries<BlogPost>({
 
 ---
 
-<div class="font-body">
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
   {entries.items.sort((p, c) => dayjs(c.sys.createdAt).isAfter(dayjs(p.sys.createdAt)) ? 1 : -1).map((item, idx) => (
-    <section class="shadow-lg p-4 my-4 bg-white drop-shadow-xl rounded-sm max-w-xl mx-auto">
-      <h2 class="text-xl font-semibold">{item.fields.title}</h2>
-      <p>{dayjs(item.sys.createdAt).format('DD MMM YY')}</p>
+    <section class="shadow-lg p-4 bg-white drop-shadow-xl rounded-sm">
+      <div class="flex justify-between">
+        <h2 class="text-2xl">{item.fields.title}</h2>
+        <p>{dayjs(item.sys.createdAt).format('DD MMM YY')}</p>
+      </div>
 	    <MyCarousel items={item.fields.media} client:only>
 		  </MyCarousel>
 	  <article class="py-2" set:html={documentToHtmlString(item.fields.entry)}></article>
