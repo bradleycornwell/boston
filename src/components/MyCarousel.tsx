@@ -56,14 +56,13 @@ const MyCarousel = ({ items, idx }: { items: any; idx: number }) => {
 				)}
 			>
 				{items.map((media: any, idx: any) => (
-					<div>
+					<div className="text-center align-middle">
 						{media?.fields?.file.contentType === 'video/mp4' ? (
 							<ReactPlayer
 								className="rounded"
 								key={`${idx}-video`}
 								controls
 								width={'100%'}
-								height={'100%'}
 								playing={false}
 								url={`https://${media.fields.file.url}`}
 							></ReactPlayer>
