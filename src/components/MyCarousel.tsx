@@ -1,11 +1,11 @@
 import Carousel from 'nuka-carousel';
 import ReactPlayer from 'react-player';
 
-const MyCarousel = ({ items }: { items: any }) => {
+const MyCarousel = ({ items, idx }: { items: any; idx: number }) => {
 	return (
 		<div className="my-6 rounded max">
 			<Carousel
-				adaptiveHeight
+				key={idx}
 				slidesToShow={1}
 				wrapAround={items.length > 1}
 				withoutControls={items.length === 1}
@@ -55,25 +55,27 @@ const MyCarousel = ({ items }: { items: any }) => {
 					</svg>
 				)}
 			>
-				{items.map((media: any, idx: any) =>
-					media?.fields?.file.contentType === 'video/mp4' ? (
-						<ReactPlayer
-							className="rounded"
-							key={`${idx}-video`}
-							controls
-							width={'100%'}
-							height={'100%'}
-							playing={false}
-							url={`https://${media.fields.file.url}`}
-						></ReactPlayer>
-					) : (
-						<img
-							key={`${idx}-photo`}
-							className="rounded h[90%] mx-auto"
-							src={`https://${media.fields.file.url}`}
-						/>
-					)
-				)}
+				{items.map((media: any, idx: any) => (
+					<div>
+						{media?.fields?.file.contentType === 'video/mp4' ? (
+							<ReactPlayer
+								className="rounded"
+								key={`${idx}-video`}
+								controls
+								width={'100%'}
+								height={'100%'}
+								playing={false}
+								url={`https://${media.fields.file.url}`}
+							></ReactPlayer>
+						) : (
+							<img
+								key={`${idx}-photo`}
+								className="rounded h[90%] mx-auto"
+								src={`https://${media.fields.file.url}`}
+							/>
+						)}
+					</div>
+				))}
 			</Carousel>
 		</div>
 	);
