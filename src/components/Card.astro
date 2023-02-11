@@ -4,11 +4,13 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import type { Document } from "@contentful/rich-text-types";
 import MyCarousel from "./MyCarousel";
 import dayjs from 'dayjs';
+import { isRenderTemplateResult } from 'astro/dist/runtime/server/render/astro';
 
 interface BlogPost {
     title: string,
     entry: Document,
-	media: any
+	  media: any
+    happenedOn: string
 }
 
 const entries = await contentfulClient.getEntries<BlogPost>({
@@ -18,11 +20,11 @@ const entries = await contentfulClient.getEntries<BlogPost>({
 ---
 
 <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-  {entries.items.sort((p, c) => dayjs(c.sys.createdAt).isAfter(dayjs(p.sys.createdAt)) ? 1 : -1).map((item, idx) => (
+  {entries.items.sort((p, c) => dayjs(p.fields.happenedOn).isBefore(dayjs(c.fields.happenedOn)) ? 1 : -1).map((item, idx) => (
     <section class="shadow-lg p-4 bg-white drop-shadow-xl rounded-sm">
       <div class="flex justify-between">
         <h2 class="text-2xl">{item.fields.title}</h2>
-        <p>{dayjs(item.sys.createdAt).format('DD MMM YY')}</p>
+        <p>{dayjs(item.fields.happenedOn).format('DD MMM YY')}</p>
       </div>
 	    <MyCarousel items={item.fields.media} client:only>
 		  </MyCarousel>

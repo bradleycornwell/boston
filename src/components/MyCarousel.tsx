@@ -2,12 +2,12 @@ import Carousel from 'nuka-carousel';
 import ReactPlayer from 'react-player';
 
 const MyCarousel = ({ items }: { items: any }) => {
-	console.log(items.length);
 	return (
 		<div className="my-6 rounded max">
 			<Carousel
+				adaptiveHeight
 				slidesToShow={1}
-				wrapAround={true}
+				wrapAround={items.length > 1}
 				withoutControls={items.length === 1}
 				renderBottomCenterControls={({ slideCount, currentSlide }) => (
 					<div className="flex pb-2">
@@ -56,10 +56,10 @@ const MyCarousel = ({ items }: { items: any }) => {
 				)}
 			>
 				{items.map((media: any, idx: any) =>
-					media.fields.file.contentType === 'video/mp4' ? (
+					media?.fields?.file.contentType === 'video/mp4' ? (
 						<ReactPlayer
 							className="rounded"
-							key={idx}
+							key={`${idx}-video`}
 							controls
 							width={'100%'}
 							height={'100%'}
@@ -68,7 +68,7 @@ const MyCarousel = ({ items }: { items: any }) => {
 						></ReactPlayer>
 					) : (
 						<img
-							key={idx}
+							key={`${idx}-photo`}
 							className="rounded h[90%] mx-auto"
 							src={`https://${media.fields.file.url}`}
 						/>
